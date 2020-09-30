@@ -23,6 +23,8 @@ Pasos para iniciar el proyecto.-
 
 ## Endpoints
 
+Documentación:  [DSB Mobile](https://documenter.getpostman.com/view/8708202/TVRd9BZF#e26840f2-e8f0-4ba8-8a40-71b103bba856).
+
  - api/user/login           
  - api/user/register        
  - api/movie/list           
