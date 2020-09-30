@@ -28,13 +28,13 @@ class MovieController extends Controller
 
     public function list(Request $request)
     {
-        $pagination = $request->pagination;
-        $page = $request->page ? $request->page : 1;
+        $request->validate(['page' => 'numeric', 'search' => 'string|max:50']);
+        $page = $request->page ? $request->page : 0;
         $search = $request->search;
 
         $total_movies = Movie::where('user_id', $this->user->id)->where('name', 'like', '%' . $search . '%')->count();
 
-        if ($pagination != "true") {
+        if ($page == 0) {
             $movies = Movie::where('user_id', $this->user->id)->where('name', 'like', '%' . $search . '%')->get();
             $pages = 1;
         } else {
